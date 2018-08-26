@@ -1,0 +1,8 @@
+#!/bin/sh
+xs='Jia.UitilityFrame.dll nat123linux.mono Nat123Service.dll NetCommClient.dll UdpCenterClient.dll'
+d=$(mktemp -d)
+chmod 777 $d
+chmod 755 $xs
+cp $xs $d
+sudo -u nobody sh -c "cd $d;mono $d/nat123linux.mono;rm -fr $d/*"
+rmdir $d
